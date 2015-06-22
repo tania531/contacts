@@ -50,7 +50,7 @@
     <table class="table table-bordered">
       <thead>
       <th>
-        <td class="active" ng-click="orderByField='fname'">First Name</td>
+        <td class="active" ng-click="orderByField='fname';reverseSort=!reverseSort">First Name</td>
         <td class="active" ng-click="orderByField='lname'">Last Name</td>
         <td class="active" ng-click="orderByField='email'">Email address</td>
         <td class="active" ng-click="orderByField='phone'">Phone</td>
@@ -58,13 +58,13 @@
       </th>
     </thead>
     <tbody>
-      <tr ng-repeat="c in contacts  | orderBy:orderByField | filter:search track by $index">
+      <tr ng-repeat="c in contacts  | orderBy:orderByField:reverseSort | filter:search track by $index">
         <td></td>
         <td class="success">{{c.fname}}</td>
         <td class="success">{{c.lname}}</td>
         <td class="success">{{c.email}}</td>
         <td class="success">{{c.phone}}</td>
-        <td class="active">{{c.gravatar}}</td>
+        <td class="active"><img ng-src="{{c.gravatar}}"</td>
       </tr>
     </tbody>
     </table>
